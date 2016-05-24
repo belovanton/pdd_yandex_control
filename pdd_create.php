@@ -1,4 +1,8 @@
 <?php
+/**
+ * php pdd_delete.php YOUR_TOKEN YOUR_DOMAIN SUBDOMAIN_FOR_ADDING CNAME_VALUE
+ *  
+ **/
 $pdd_token=$argv[1];
 
 $url = 'https://pddimp.yandex.ru//api2/admin/dns/add';
