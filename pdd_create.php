@@ -3,16 +3,19 @@
  * php pdd_delete.php YOUR_TOKEN YOUR_DOMAIN SUBDOMAIN_FOR_ADDING CNAME_VALUE
  *  
  **/
-$pdd_token=$argv[1];
+
+$pdd_token= $argv[1];
 
 $url = 'https://pddimp.yandex.ru//api2/admin/dns/add';
 $header[] = "PddToken: $pdd_token";
 $domain=$argv[2];
+$opts=explode('&', $argv[3]);
+$type=$opts[1];
 $fields = array(
 	'domain'=>urlencode($domain),
-	'type'=>urlencode('CNAME'),
-	'subdomain'=>urlencode($argv[3]),
-	'content'=>urlencode($argv[4])
+	'type'=>urlencode($type),
+	'subdomain'=>urlencode($opts[0]),
+	'content'=>urlencode($opts[2])
 );
 $fields_string='';
 //url-ify the data for the POST
